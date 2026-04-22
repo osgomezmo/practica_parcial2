@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use app\Models\Recipe;
+use app\Models\Role;
 
 class User extends Authenticatable
 {
@@ -14,6 +15,10 @@ class User extends Authenticatable
 
     public function recipes(){
         $this->hasMany(Recipe::class);
+    }
+
+    public function role(){
+        $this->belongsto(Role::class);
     }
 
     /**
