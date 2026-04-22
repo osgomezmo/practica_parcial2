@@ -6,19 +6,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use app\Models\Recipe;
-use app\Models\Role;
+use App\Models\Recipe;
+use App\Models\Role;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
     public function recipes(){
-        $this->hasMany(Recipe::class);
+        return $this->hasMany(Recipe::class);
     }
 
     public function role(){
-        $this->belongsto(Role::class);
+        return $this->belongsTo(Role::class);
     }
 
     /**
@@ -30,7 +30,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',
+        'role_id',
     ];
 
     /**

@@ -7,6 +7,6 @@ use app\Models\User;
 class Recipe extends Model
 { 
     public function user(){
-        $this->belongsto(User::class);
+       return $this->belongsto(User::class);
     }
 }
